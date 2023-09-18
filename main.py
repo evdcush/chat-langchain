@@ -134,7 +134,7 @@ def create_chain(
 async def transform_stream_for_client(stream: AsyncIterator[Log]) -> AsyncIterator[str]:
     async for chunk in stream:
         for op in chunk.ops:
-            if op["path"] == "/logs/0/final_output":
+            if op["path"] == "/entries/0/final_output":
                 # Send source urls when they become available
                 url_set = set()
                 for doc in op["value"]["output"]:
